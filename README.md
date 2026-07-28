@@ -1,0 +1,51 @@
+## Bilguun-Erdene Erdenejargal
+
+Security researcher. I find and report vulnerabilities in software people actually run — web2 and web3.
+
+Every claim on this page links to something you can open.
+
+---
+
+### Published advisories
+
+**[GHSA-v5mv-p594-2x33](https://github.com/guzzle/guzzle/security/advisories/GHSA-v5mv-p594-2x33)** — *Noncanonical host can bypass host-based checks in `guzzlehttp/guzzle`*
+
+- **High — CVSS 3.1 score 7.2** (`AV:N/AC:L/PR:N/UI:N/S:C/C:L/I:L/A:N`)
+- Affects `< 7.15.2` and `>= 8.0.0, < 8.0.1` · patched in **7.15.2** and **8.0.1**
+- Published 2026-07-26 · credited reporter
+
+**GHSA-859q-jpx8-p5mm** — *yarl silently strips default-ignorable code points from the host*
+
+- **Medium** — CWE-436 (Interpretation Conflict) + CWE-918 (SSRF)
+- Affects `yarl <= 1.24.2` · patched in **[1.24.5](https://github.com/aio-libs/yarl/releases/tag/v1.24.5)**
+- Fix: [aio-libs/yarl#1801](https://github.com/aio-libs/yarl/pull/1801) — *"Reject hosts with Unicode default-ignorable code points"*
+- Accepted; advisory pending publication, so the release and the patch commit are the public record
+
+---
+
+### The common thread
+
+Both findings are the same bug class in two different language ecosystems, found by the same method:
+**a URL library and the code that validates it disagree about what the host is.** The validator
+inspects one host string; the client then connects somewhere else. Guzzle is PHP, yarl is Python —
+the class does not care about the language.
+
+That is the work: pick a transformation that runs before a security decision, measure what it
+actually does to its whole input space instead of guessing, and then look for a consumer that
+re-derives the value differently.
+
+---
+
+### How I work
+
+- **Nothing is reported until it has been executed.** A conclusion from reading source is a
+  hypothesis. It stays a hypothesis until a test drives the real code and fails without the bug.
+- **Every negative result needs a positive control.** If a search returns nothing, I first prove
+  the search can return something.
+- **The impact ladder gets climbed all the way**, and where a rung does not hold, the report says so.
+
+Active in web3 audit contests and bug bounty programs alongside the open-source work.
+
+---
+
+📫 `admin@researchcti.cyou`
