@@ -48,4 +48,22 @@ Active in web3 audit contests and bug bounty programs alongside the open-source 
 
 ---
 
+### Support the work
+
+Findings like the ones above take weeks of unpaid execution — building the lab, running the controls,
+and writing the negative results down as carefully as the positive ones. If any of it saved you time,
+a coffee is genuinely appreciated.
+
+**EVM address** — Ethereum and EVM-compatible chains:
+
+```
+0x5A1d2EFAeef4cd4c8C4F9d8D78B10fbE8b22B814
+```
+
+[![Buy me a coffee](https://img.shields.io/badge/Buy%20me%20a%20coffee-0x5A1d...B814-FFDD00?style=for-the-badge&logo=ethereum&logoColor=black)](#support-the-work)
+
+No obligation, and it changes nothing about what gets reported or to whom.
+
+---
+
 📫 `admin@researchcti.cyou`
