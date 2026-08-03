@@ -1,4 +1,4 @@
-<h1 align="center">Bilguun-Erdene Erdenejargal</h1>
+<h1 align="center">Bicktivism Z</h1>
 
 <p align="center">
   Security researcher. I find and report vulnerabilities in software people actually run — web2 and web3.
