@@ -1,8 +1,17 @@
-## Bilguun-Erdene Erdenejargal
+<h1 align="center">Bilguun-Erdene Erdenejargal</h1>
 
-Security researcher. I find and report vulnerabilities in software people actually run — web2 and web3.
+<p align="center">
+  Security researcher. I find and report vulnerabilities in software people actually run — web2 and web3.
+</p>
 
-Every claim on this page links to something you can open.
+<p align="center">
+  <a href="https://github.com/guzzle/guzzle/security/advisories/GHSA-v5mv-p594-2x33"><img alt="guzzlehttp/guzzle — High, CVSS 7.2" src="https://img.shields.io/badge/guzzlehttp%2Fguzzle-High%20%C2%B7%20CVSS%207.2-c0392b?style=flat-square"></a>
+  <a href="https://github.com/aio-libs/yarl/releases/tag/v1.24.5"><img alt="aio-libs/yarl — Medium, patched in 1.24.5" src="https://img.shields.io/badge/aio--libs%2Fyarl-Medium%20%C2%B7%20patched%201.24.5-e67e22?style=flat-square"></a>
+  <a href="#published-advisories"><img alt="credited reporter" src="https://img.shields.io/badge/credited-reporter-2c7a4b?style=flat-square"></a>
+  <a href="#support-the-work"><img alt="Buy me a coffee" src="https://img.shields.io/badge/buy%20me%20a%20coffee-EVM-FFDD00?style=flat-square&logo=ethereum&logoColor=black"></a>
+</p>
+
+<p align="center"><em>Every claim on this page links to something you can open.</em></p>
 
 ---
 
@@ -60,10 +69,8 @@ a coffee is genuinely appreciated.
 0x5A1d2EFAeef4cd4c8C4F9d8D78B10fbE8b22B814
 ```
 
-[![Buy me a coffee](https://img.shields.io/badge/Buy%20me%20a%20coffee-0x5A1d...B814-FFDD00?style=for-the-badge&logo=ethereum&logoColor=black)](#support-the-work)
-
 No obligation, and it changes nothing about what gets reported or to whom.
 
 ---
 
-📫 `admin@researchcti.cyou`
+<p align="center">📫 <code>admin@researchcti.cyou</code></p>
