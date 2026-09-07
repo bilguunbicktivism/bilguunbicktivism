@@ -7,6 +7,7 @@
 <p align="center">
   <a href="https://github.com/guzzle/guzzle/security/advisories/GHSA-v5mv-p594-2x33"><img alt="guzzlehttp/guzzle — High, CVSS 7.2" src="https://img.shields.io/badge/guzzlehttp%2Fguzzle-High%20%C2%B7%20CVSS%207.2-c0392b?style=flat-square"></a>
   <a href="https://github.com/aio-libs/yarl/releases/tag/v1.24.5"><img alt="aio-libs/yarl — Medium, patched in 1.24.5" src="https://img.shields.io/badge/aio--libs%2Fyarl-Medium%20%C2%B7%20patched%201.24.5-e67e22?style=flat-square"></a>
+  <a href="https://audits.sherlock.xyz/watson/bicktivism"><img alt="Sherlock — $4.15K, 1x 2nd place, 2x top 10" src="https://img.shields.io/badge/Sherlock-%244.15K%20%C2%B7%202nd%20place-6c5ce7?style=flat-square"></a>
   <a href="#published-advisories"><img alt="credited reporter" src="https://img.shields.io/badge/credited-reporter-2c7a4b?style=flat-square"></a>
   <a href="#support-the-work"><img alt="Buy me a coffee" src="https://img.shields.io/badge/buy%20me%20a%20coffee-EVM-FFDD00?style=flat-square&logo=ethereum&logoColor=black"></a>
 </p>
@@ -32,9 +33,24 @@
 
 ---
 
+### Audit contests
+
+**[Sherlock](https://audits.sherlock.xyz/watson/bicktivism)** — $4.15K total, **#982 all-time** · 2 payouts · 1× 2nd place · 2× top 10 · 2× top 25
+
+**[Metric](https://audits.sherlock.xyz/contests/1279)** — **rank #4** · 1,611.03 USDC
+
+- **Medium** — *Missing zero-output guard in `SwapMath`'s exact-input swaps lets an attacker corrupt
+  `curPosInBin` for free and profit on subsequent real trades*
+- It is the **unpatched sibling of Zellic 3.4**: that fix (`57674bdd`) covered the exact-**output**
+  functions only, and the exact-**input** path was left live.
+
+**[Tare](https://audits.sherlock.xyz/contests/1234)** — **2nd place** · 2,535.04 USDC
+
+---
+
 ### The common thread
 
-Both findings are the same bug class in two different language ecosystems, found by the same method:
+Both advisories are the same bug class in two different language ecosystems, found by the same method:
 **a URL library and the code that validates it disagree about what the host is.** The validator
 inspects one host string; the client then connects somewhere else. Guzzle is PHP, yarl is Python —
 the class does not care about the language.
@@ -42,6 +58,10 @@ the class does not care about the language.
 That is the work: pick a transformation that runs before a security decision, measure what it
 actually does to its whole input space instead of guessing, and then look for a consumer that
 re-derives the value differently.
+
+The Metric finding is the same habit pointed at a **patch** rather than at a parser: read what the
+fix actually changed, then go looking for the call sites it did not reach. A remediation is a
+boundary someone drew by hand, and hands miss siblings.
 
 ---
 
@@ -52,8 +72,6 @@ re-derives the value differently.
 - **Every negative result needs a positive control.** If a search returns nothing, I first prove
   the search can return something.
 - **The impact ladder gets climbed all the way**, and where a rung does not hold, the report says so.
-
-Active in web3 audit contests and bug bounty programs alongside the open-source work.
 
 ---
 
