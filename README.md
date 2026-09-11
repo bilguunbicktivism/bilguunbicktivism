@@ -61,8 +61,9 @@ permissionless cross-user theft of shared accrued fees*
 - On each swap the hook performs a DirectBuyback to a pool-configured — and attacker-controllable —
   `buybackDst` **before** zeroing `getHookFees[poolId].fees0/fees1`, and `_onSwap` carries no
   reentrancy guard. Re-entering therefore pays out against fees that belong to other pools.
-- Filed 2026-07-21 · closed **duplicate of an earlier report, which the project has since fixed** ·
-  no reward
+- Filed 2026-07-21 · closed **duplicate of an earlier report, which the project has since fixed**.
+  This programme rewards the first reporter only, so a duplicate is not eligible — the bug was
+  real and is gone; the credit for it is not mine.
 - Cantina keeps finding pages behind authentication, so the openable record here is the profile's
   severity counter rather than the write-up itself.
 
