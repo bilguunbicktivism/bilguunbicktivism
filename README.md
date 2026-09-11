@@ -8,6 +8,7 @@
   <a href="https://github.com/guzzle/guzzle/security/advisories/GHSA-v5mv-p594-2x33"><img alt="guzzlehttp/guzzle — High, CVSS 7.2" src="https://img.shields.io/badge/guzzlehttp%2Fguzzle-High%20%C2%B7%20CVSS%207.2-c0392b?style=flat-square"></a>
   <a href="https://github.com/aio-libs/yarl/releases/tag/v1.24.5"><img alt="aio-libs/yarl — Medium, patched in 1.24.5" src="https://img.shields.io/badge/aio--libs%2Fyarl-Medium%20%C2%B7%20patched%201.24.5-e67e22?style=flat-square"></a>
   <a href="https://audits.sherlock.xyz/watson/bicktivism"><img alt="Sherlock — $4.15K, 1x 2nd place, 2x top 10" src="https://img.shields.io/badge/Sherlock-%244.15K%20%C2%B7%202nd%20place-6c5ce7?style=flat-square"></a>
+  <a href="https://cantina.xyz/u/bicktivism"><img alt="Cantina — 1 high-severity finding" src="https://img.shields.io/badge/Cantina-1%20high%20%C2%B7%20doppler--contracts-00b894?style=flat-square"></a>
   <a href="#published-advisories"><img alt="credited reporter" src="https://img.shields.io/badge/credited-reporter-2c7a4b?style=flat-square"></a>
   <a href="#support-the-work"><img alt="Buy me a coffee" src="https://img.shields.io/badge/buy%20me%20a%20coffee-EVM-FFDD00?style=flat-square&logo=ethereum&logoColor=black"></a>
 </p>
@@ -45,6 +46,25 @@
   functions only, and the exact-**input** path was left live.
 
 **[Tare](https://audits.sherlock.xyz/contests/1234)** — **2nd place** · 2,535.04 USDC
+
+---
+
+### Bug bounties
+
+**[Cantina](https://cantina.xyz/u/bicktivism)** — 1 high-severity finding on the public profile
+
+**`doppler-contracts`** (Whetstone) — *Reentrancy in `RehypeDopplerHookInitializer._onSwap`:
+permissionless cross-user theft of shared accrued fees*
+
+- **High.** The hook is a **shared singleton** on Base (`0xBF4195ab0B03e1eB3345dd1e83BeD7650b1ed123`)
+  whose balance commingles the accrued fees of every pool that uses it.
+- On each swap the hook performs a DirectBuyback to a pool-configured — and attacker-controllable —
+  `buybackDst` **before** zeroing `getHookFees[poolId].fees0/fees1`, and `_onSwap` carries no
+  reentrancy guard. Re-entering therefore pays out against fees that belong to other pools.
+- Filed 2026-07-21 · closed **duplicate of an earlier report, which the project has since fixed** ·
+  no reward
+- Cantina keeps finding pages behind authentication, so the openable record here is the profile's
+  severity counter rather than the write-up itself.
 
 ---
 
