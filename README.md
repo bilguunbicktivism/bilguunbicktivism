@@ -8,6 +8,7 @@
   <a href="https://github.com/guzzle/guzzle/security/advisories/GHSA-v5mv-p594-2x33"><img alt="guzzlehttp/guzzle — High, CVSS 7.2" src="https://img.shields.io/badge/guzzlehttp%2Fguzzle-High%20%C2%B7%20CVSS%207.2-c0392b?style=flat-square"></a>
   <a href="https://github.com/aio-libs/yarl/releases/tag/v1.24.5"><img alt="aio-libs/yarl — Medium, patched in 1.24.5" src="https://img.shields.io/badge/aio--libs%2Fyarl-Medium%20%C2%B7%20patched%201.24.5-e67e22?style=flat-square"></a>
   <a href="https://audits.sherlock.xyz/watson/bicktivism"><img alt="Sherlock — $4.15K, 1x 2nd place, 2x top 10" src="https://img.shields.io/badge/Sherlock-%244.15K%20%C2%B7%202nd%20place-6c5ce7?style=flat-square"></a>
+  <a href="#audit-contests"><img alt="Immunefi — Critical, confirmed" src="https://img.shields.io/badge/Immunefi-Critical%20%C2%B7%20confirmed-e74c3c?style=flat-square"></a>
   <a href="https://cantina.xyz/u/bicktivism"><img alt="Cantina — 1 high-severity finding" src="https://img.shields.io/badge/Cantina-1%20high%20%C2%B7%20doppler--contracts-00b894?style=flat-square"></a>
   <a href="#published-advisories"><img alt="credited reporter" src="https://img.shields.io/badge/credited-reporter-2c7a4b?style=flat-square"></a>
   <a href="#support-the-work"><img alt="Buy me a coffee" src="https://img.shields.io/badge/buy%20me%20a%20coffee-EVM-FFDD00?style=flat-square&logo=ethereum&logoColor=black"></a>
@@ -35,6 +36,16 @@
 ---
 
 ### Audit contests
+
+**Immunefi — ENS Audit Competition** — 1 **Critical**, confirmed by the project
+
+- **Critical · Confirmed · Chief Finding.** Submission #92925, submitted 2026-09-13. The project's
+  status on the report reads *"The project believes the report is valid and will be rewarded."*
+- Scope: [`immunefi-team/audit-comp-ens`](https://github.com/immunefi-team/audit-comp-ens) — the
+  competition repository, and the report's own declared target.
+- **No mechanism, proof of concept or report text appears here**, and none will while the finding
+  is unpublished. Immunefi keeps submission pages behind authentication, so — as with the Cantina
+  entry below — there is no openable record of this one yet. What is openable is the scope above.
 
 **[Sherlock](https://audits.sherlock.xyz/watson/bicktivism)** — $4.15K total, **#982 all-time** · 2 payouts · 1× 2nd place · 2× top 10 · 2× top 25
 
