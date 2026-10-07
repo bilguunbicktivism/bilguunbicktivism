@@ -5,8 +5,9 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/guzzle/guzzle/security/advisories/GHSA-v5mv-p594-2x33"><img alt="guzzlehttp/guzzle — High, CVSS 7.2" src="https://img.shields.io/badge/guzzlehttp%2Fguzzle-High%20%C2%B7%20CVSS%207.2-c0392b?style=flat-square"></a>
-  <a href="https://github.com/aio-libs/yarl/releases/tag/v1.24.5"><img alt="aio-libs/yarl — Medium, patched in 1.24.5" src="https://img.shields.io/badge/aio--libs%2Fyarl-Medium%20%C2%B7%20patched%201.24.5-e67e22?style=flat-square"></a>
+  <a href="https://github.com/advisories/GHSA-858h-whjf-mvg5"><img alt="simple-git — CVE-2026-102827, High, CVSS 8.1" src="https://img.shields.io/badge/simple--git-CVE--2026--102827%20%C2%B7%20High%208.1-c0392b?style=flat-square"></a>
+  <a href="https://github.com/guzzle/guzzle/security/advisories/GHSA-v5mv-p594-2x33"><img alt="guzzlehttp/guzzle — CVE-2026-69246, High, CVSS 7.2" src="https://img.shields.io/badge/guzzlehttp%2Fguzzle-CVE--2026--69246%20%C2%B7%20High%207.2-c0392b?style=flat-square"></a>
+  <a href="https://github.com/aio-libs/yarl/releases/tag/v1.24.5"><img alt="aio-libs/yarl — CVE-2026-86052 reserved, Medium, patched in 1.24.5" src="https://img.shields.io/badge/aio--libs%2Fyarl-CVE--2026--86052%20%C2%B7%20Medium%20%C2%B7%20patched%201.24.5-e67e22?style=flat-square"></a>
   <a href="https://audits.sherlock.xyz/watson/bicktivism"><img alt="Sherlock — $4.15K, 1x 2nd place, 2x top 10" src="https://img.shields.io/badge/Sherlock-%244.15K%20%C2%B7%202nd%20place-6c5ce7?style=flat-square"></a>
   <a href="#audit-contests"><img alt="Immunefi — Critical, confirmed" src="https://img.shields.io/badge/Immunefi-Critical%20%C2%B7%20confirmed-e74c3c?style=flat-square"></a>
   <a href="https://cantina.xyz/u/bicktivism"><img alt="Cantina — 1 high-severity finding" src="https://img.shields.io/badge/Cantina-1%20high%20%C2%B7%20doppler--contracts-00b894?style=flat-square"></a>
@@ -20,17 +21,31 @@
 
 ### Published advisories
 
-**[GHSA-v5mv-p594-2x33](https://github.com/guzzle/guzzle/security/advisories/GHSA-v5mv-p594-2x33)** — *Noncanonical host can bypass host-based checks in `guzzlehttp/guzzle`*
+**[GHSA-858h-whjf-mvg5](https://github.com/advisories/GHSA-858h-whjf-mvg5) · [CVE-2026-102827](https://www.cve.org/CVERecord?id=CVE-2026-102827)** — *simple-git: unsafe-operations plugin bypass via git long-option abbreviation (`--receive-p`, `--exe`) → command execution*
 
-- **High — CVSS 3.1 score 7.2** (`AV:N/AC:L/PR:N/UI:N/S:C/C:L/I:L/A:N`)
+- **High — CVSS 3.1 score 8.1** (`AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:H/A:H`) · CWE-77 + CWE-88
+- Affects `simple-git <= 3.36.0` (npm) · patched in **[4.0.0](https://github.com/steveukx/git-js/releases/tag/simple-git%404.0.0)**
+- Fix: [steveukx/git-js#1193](https://github.com/steveukx/git-js/pull/1193) · commit [`98864c6`](https://github.com/steveukx/git-js/commit/98864c678444d9336357c844efa4fd5a7984c0d7)
+- CVE record published 2026-09-29 · in the GitHub Advisory Database 2026-10-05 · credited reporter
+- The guard compared option names by exact spelling; git accepts any unambiguous prefix. So `--receive-p`
+  and `--exe` were unknown strings to the guard and `--receive-pack` / `--exec` to git — the residual of
+  CVE-2026-28291, the fix the guard was added for.
+- Several researchers hit this independently: the finder credit is anir0y's, and the advisory lists me
+  among the reporters. My report went in on 2026-08-10.
+
+**[GHSA-v5mv-p594-2x33](https://github.com/guzzle/guzzle/security/advisories/GHSA-v5mv-p594-2x33) · [CVE-2026-69246](https://www.cve.org/CVERecord?id=CVE-2026-69246)** — *Noncanonical host can bypass host-based checks in `guzzlehttp/guzzle`*
+
+- **High — CVSS 3.1 score 7.2** (`AV:N/AC:L/PR:N/UI:N/S:C/C:L/I:L/A:N`) · CWE-180 + CWE-436 + CWE-918
 - Affects `< 7.15.2` and `>= 8.0.0, < 8.0.1` · patched in **7.15.2** and **8.0.1**
-- Published 2026-07-26 · credited reporter
+- Advisory published 2026-07-26 · CVE record 2026-08-03 · credited reporter
 
 **GHSA-859q-jpx8-p5mm** — *yarl silently strips default-ignorable code points from the host*
 
 - **Medium** — CWE-436 (Interpretation Conflict) + CWE-918 (SSRF)
 - Affects `yarl <= 1.24.2` · patched in **[1.24.5](https://github.com/aio-libs/yarl/releases/tag/v1.24.5)**
 - Fix: [aio-libs/yarl#1801](https://github.com/aio-libs/yarl/pull/1801) — *"Reject hosts with Unicode default-ignorable code points"*
+- **[CVE-2026-86052](https://www.cve.org/CVERecord?id=CVE-2026-86052)** issued by GitHub (CNA) on 2026-09-05; the record stays
+  *reserved* until the maintainers publish the advisory
 - Accepted; advisory pending publication, so the release and the patch commit are the public record
 
 ---
@@ -82,7 +97,7 @@ permissionless cross-user theft of shared accrued fees*
 
 ### The common thread
 
-Both advisories are the same bug class in two different language ecosystems, found by the same method:
+The Guzzle and yarl advisories are the same bug class in two different language ecosystems, found by the same method:
 **a URL library and the code that validates it disagree about what the host is.** The validator
 inspects one host string; the client then connects somewhere else. Guzzle is PHP, yarl is Python —
 the class does not care about the language.
@@ -90,6 +105,10 @@ the class does not care about the language.
 That is the work: pick a transformation that runs before a security decision, measure what it
 actually does to its whole input space instead of guessing, and then look for a consumer that
 re-derives the value differently.
+
+The simple-git advisory is the same shape on a different axis. The guard read an option name by its
+exact spelling; the parser behind it, git, accepts any unambiguous prefix. One value, two readers,
+and the security decision was made by the stricter of the two.
 
 The Metric finding is the same habit pointed at a **patch** rather than at a parser: read what the
 fix actually changed, then go looking for the call sites it did not reach. A remediation is a
