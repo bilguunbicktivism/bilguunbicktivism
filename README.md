@@ -142,4 +142,4 @@ No obligation, and it changes nothing about what gets reported or to whom.
 
 ---
 
-<p align="center">📫 <code>admin@researchcti.cyou</code></p>
+<p align="center">📫 <code>admin@researchcti.cyou</code> · <code>bicktivism@clearex.market</code></p>
