@@ -5,7 +5,7 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/advisories/GHSA-858h-whjf-mvg5"><img alt="simple-git — CVE-2026-102827, High, CVSS 8.1" src="https://img.shields.io/badge/simple--git-CVE--2026--102827%20%C2%B7%20High%208.1-c0392b?style=flat-square"></a>
+  <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-102827"><img alt="simple-git — CVE-2026-102827, NVD CVSS 9.8 Critical (GitHub CNA 8.1 High)" src="https://img.shields.io/badge/simple--git-CVE--2026--102827%20%C2%B7%20NVD%209.8%20Critical-b30000?style=flat-square"></a>
   <a href="https://github.com/guzzle/guzzle/security/advisories/GHSA-v5mv-p594-2x33"><img alt="guzzlehttp/guzzle — CVE-2026-69246, High, CVSS 7.2" src="https://img.shields.io/badge/guzzlehttp%2Fguzzle-CVE--2026--69246%20%C2%B7%20High%207.2-c0392b?style=flat-square"></a>
   <a href="https://github.com/aio-libs/yarl/releases/tag/v1.24.5"><img alt="aio-libs/yarl — CVE-2026-86052 reserved, Medium, patched in 1.24.5" src="https://img.shields.io/badge/aio--libs%2Fyarl-CVE--2026--86052%20%C2%B7%20Medium%20%C2%B7%20patched%201.24.5-e67e22?style=flat-square"></a>
   <a href="https://audits.sherlock.xyz/watson/bicktivism"><img alt="Sherlock — $4.15K, 1x 2nd place, 2x top 10" src="https://img.shields.io/badge/Sherlock-%244.15K%20%C2%B7%202nd%20place-6c5ce7?style=flat-square"></a>
@@ -23,10 +23,17 @@
 
 **[GHSA-858h-whjf-mvg5](https://github.com/advisories/GHSA-858h-whjf-mvg5) · [CVE-2026-102827](https://www.cve.org/CVERecord?id=CVE-2026-102827)** — *simple-git: unsafe-operations plugin bypass via git long-option abbreviation (`--receive-p`, `--exe`) → command execution*
 
-- **High — CVSS 3.1 score 8.1** (`AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:H/A:H`) · CWE-77 + CWE-88
+- **Critical — CVSS 3.1 score 9.8** (`AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H`) · CWE-77 + CWE-88
+  — the **primary** metric on the [NVD record](https://nvd.nist.gov/vuln/detail/CVE-2026-102827), assigned by `nvd@nist.gov`
+  when NVD finished its analysis on **2026-10-08** (record status `Analyzed`)
+- GitHub's own CNA score on the advisory stays **High 8.1** (`AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:H/A:H`).
+  The two vectors differ in exactly one metric — attack complexity — and NVD reads it as
+  **AC:L**, which is the whole distance from High to Critical. CISA's SSVC entry of 2026-10-02
+  reads `exploitation: none · automatable: no · technicalImpact: total`.
 - Affects `simple-git <= 3.36.0` (npm) · patched in **[4.0.0](https://github.com/steveukx/git-js/releases/tag/simple-git%404.0.0)**
 - Fix: [steveukx/git-js#1193](https://github.com/steveukx/git-js/pull/1193) · commit [`98864c6`](https://github.com/steveukx/git-js/commit/98864c678444d9336357c844efa4fd5a7984c0d7)
-- CVE record published 2026-09-29 · in the GitHub Advisory Database 2026-10-05 · credited reporter
+- CVE record published 2026-09-29 · in the GitHub Advisory Database 2026-10-05 · NVD analysis
+  complete 2026-10-08 · credited reporter
 - The guard compared option names by exact spelling; git accepts any unambiguous prefix. So `--receive-p`
   and `--exe` were unknown strings to the guard and `--receive-pack` / `--exec` to git — the residual of
   CVE-2026-28291, the fix the guard was added for.
