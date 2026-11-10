@@ -7,6 +7,7 @@
 <p align="center">
   <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-102827"><img alt="simple-git — CVE-2026-102827, NVD CVSS 9.8 Critical (GitHub CNA 8.1 High)" src="https://img.shields.io/badge/simple--git-CVE--2026--102827%20%C2%B7%20NVD%209.8%20Critical-b30000?style=flat-square"></a>
   <a href="https://github.com/guzzle/guzzle/security/advisories/GHSA-v5mv-p594-2x33"><img alt="guzzlehttp/guzzle — CVE-2026-69246, High, CVSS 7.2" src="https://img.shields.io/badge/guzzlehttp%2Fguzzle-CVE--2026--69246%20%C2%B7%20High%207.2-c0392b?style=flat-square"></a>
+  <a href="https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-120783"><img alt="Microsoft Azure DevOps Server — CVE-2026-120783, Important, CVSS 6.4" src="https://img.shields.io/badge/Azure%20DevOps%20Server-CVE--2026--120783%20%C2%B7%20Important%206.4-0078d4?style=flat-square"></a>
   <a href="https://github.com/aio-libs/yarl/releases/tag/v1.24.5"><img alt="aio-libs/yarl — CVE-2026-86052 reserved, Medium, patched in 1.24.5" src="https://img.shields.io/badge/aio--libs%2Fyarl-CVE--2026--86052%20%C2%B7%20Medium%20%C2%B7%20patched%201.24.5-e67e22?style=flat-square"></a>
   <a href="https://audits.sherlock.xyz/watson/bicktivism"><img alt="Sherlock — $4.15K, 1x 2nd place, 2x top 10" src="https://img.shields.io/badge/Sherlock-%244.15K%20%C2%B7%202nd%20place-6c5ce7?style=flat-square"></a>
   <a href="#audit-contests"><img alt="Immunefi — Critical, confirmed" src="https://img.shields.io/badge/Immunefi-Critical%20%C2%B7%20confirmed-e74c3c?style=flat-square"></a>
@@ -45,6 +46,17 @@
 - **High — CVSS 3.1 score 7.2** (`AV:N/AC:L/PR:N/UI:N/S:C/C:L/I:L/A:N`) · CWE-180 + CWE-436 + CWE-918
 - Affects `< 7.15.2` and `>= 8.0.0, < 8.0.1` · patched in **7.15.2** and **8.0.1**
 - Advisory published 2026-07-26 · CVE record 2026-08-03 · credited reporter
+
+**[CVE-2026-120783](https://msrc.microsoft.com/update-guide/vulnerability/CVE-2026-120783) · [CVE record](https://www.cve.org/CVERecord?id=CVE-2026-120783)** — *Azure DevOps Server Elevation of Privilege Vulnerability*
+
+- **Important — CVSS 3.1 score 6.4** (`AV:N/AC:H/PR:L/UI:N/S:U/C:H/I:L/A:L`), temporal 5.8 · CWE-1390 (Weak Authentication)
+- Microsoft's description: weak authentication in Azure DevOps Server lets an authorized attacker elevate
+  privileges over a network. Per the advisory's FAQ, a successful attacker gains read access to the
+  Elasticsearch search corpus and can tamper with or delete the search index, not the underlying source data.
+- Affects **Azure DevOps Server 2025** · fixed build **20260304.1** (listed against the release notes)
+- Released 2026-11-10 in the November 2026 security update · MSRC exploitability assessment
+  *Exploitation Less Likely* · CVE record published by Microsoft (CNA) on 2026-11-10
+- Credited finder in MSRC's acknowledgements, alongside alittleston3
 
 **GHSA-859q-jpx8-p5mm** — *yarl silently strips default-ignorable code points from the host*
 
